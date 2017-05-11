@@ -23,4 +23,4 @@ My first steps in learning Web-components
 
 ### Demo
 
-If you want see, how site look like, click [this link] (https://kanastasiya.github.io/Web_components)
+If you want see, how site look like, click [this link](https://kanastasiya.github.io/Web_components/)
