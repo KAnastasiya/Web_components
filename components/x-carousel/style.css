@@ -1,0 +1,67 @@
+:host {
+  display: block;
+  contain: content;
+}
+
+x-carousel {
+  display: flex;
+  height: 210px;
+  position: relative;
+}
+
+.btn {
+  font-size: 0;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+}
+
+.btn::before {
+  --border: 3px solid #ccc;
+
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-right: var(--border);
+  border-bottom: var(--border);
+  margin-top: -50%;
+  position: absolute;
+  top: 50%;
+}
+
+.btn--prev {
+  left: 0;
+}
+
+.btn--prev::before {
+  margin-right: -50%;
+  right: 50%;
+  transform: rotate(135deg);
+}
+
+.btn--next {
+  right: 0;
+}
+
+.btn--next::before {
+  margin-left: -50%;
+  left: 50%;
+  transform: rotate(-45deg);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover::before {
+  color: #666;
+}
+
+.btn:active::before {
+  color: #eee;
+}
