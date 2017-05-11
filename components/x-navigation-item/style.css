@@ -1,0 +1,82 @@
+:host a {
+  color: inherit;
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+:host a.active {
+  cursor: default;
+}
+
+:host([layout="tablet"]),
+:host([layout="mobile"]) {
+  display: none;
+  position: relative;
+  top: 60px;
+}
+
+:host([layout="tablet"]) a,
+:host([layout="mobile"]) a {
+  color: var(--yellow);
+  line-height: 1;
+  display: block;
+  padding: 15px 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+:host([layout="tablet"]) a:not(.active):hover,
+:host([layout="mobile"]) a:not(.active):hover {
+  color: inherit;
+}
+
+:host([layout="tablet"]) a.active,
+:host([layout="mobile"]) a.active {
+  color: var(--yellow);
+  border-left: 5px solid currentColor;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+:host([layout="tablet"]) a.icon,
+:host([layout="mobile"]) a.icon {
+  background-image: url() !important;
+}
+
+:host([layout="tablet"][class="visible"]),
+:host([layout="mobile"][class="visible"]) {
+  display: block;
+}
+
+:host([layout="large"]) {
+  font-size: 0;
+  display: inline-block;
+  vertical-align: middle;
+  contain: content;
+}
+
+:host([layout="large"]) a {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 0;
+  margin: 0 20px;
+}
+
+:host([layout="large"]) a:not(.active):hover,
+:host([layout="large"]) a.active {
+  color: var(--yellow);
+}
+
+:host([layout="large"]) a.active {
+  border-bottom: 3px solid currentColor;
+}
+
+:host([layout="large"]) a.icon {
+  font-size: 0;
+  width: 18px;
+  height: 18px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin: 0 10px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

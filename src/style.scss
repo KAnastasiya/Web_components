@@ -1,3 +1,9 @@
+:root {
+  --yellow: #fce38a;
+  --red: #f38181;
+  --container-width: 80%;
+}
+
 html {
   color: #333;
   font-family: 'Roboto', sans-serif;
@@ -19,14 +25,18 @@ body {
 }
 
 .container {
-  width: 80%;
-  margin: auto;
+  width: var(--container-width);
+  margin: 40px auto;
   max-width: 730px;
 }
 
 section {
-  &:not(:last-of-type) {
-    margin-bottom: 40px;
+  &:not(:first-of-type) {
+    margin-top: 90px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 445px;
   }
 }
 
@@ -35,7 +45,7 @@ h2 {
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
-  margin: 0 0 20px;
+  margin: 0 0 30px;
 }
 
 h5 {
@@ -75,7 +85,7 @@ cite {
     content: '';
     width: 60px;
     height: 3px;
-    background-color: red;
+    background-color: var(--red);
     position: absolute;
     top: 50%;
     left: 0;
