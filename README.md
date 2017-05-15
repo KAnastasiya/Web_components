@@ -2,6 +2,8 @@
 
 My first steps in learning Web-components
 
+**Attention!** Now web-components work only in Chrome and Opera (look at [can i use](http://caniuse.com/#feat=custom-elements)).
+
 
 ### Installation
 
