@@ -1,6 +1,4 @@
-(function() {
-  'use strict';
-
+(function () {
   const componentDocument = document.currentScript.ownerDocument;
   const componentTemplate = componentDocument.querySelector('template').content;
 
@@ -20,7 +18,7 @@
 
       this.shadowRoot.appendChild(componentTemplate.cloneNode(true));
     }
-  }
+  };
 
-  window.customElements.define('x-navigation-item', XNavigationItem);
-})();
+  window.customElements.define('x-navigation-item', window.XNavigationItem);
+}());
