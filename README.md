@@ -114,10 +114,18 @@ My first steps in learning Web-components
 - `percent` - percentage of the circle, that must be filled.
 - `stroke-width` - thickness of the stroke.
 
+If you want customize this element, you can use css custom properties:
+- `--chart-full-color-stroke` - border color, that does not corresponds to the percentage.
+- `--chart-color-stroke` - border color, that corresponds to the percentage.
+- `--chart-color-fill` - color of area inside circle.
+- `--chart-title-color` - color of text below circle.
+- `--chart-percent-color` - color of text inside circle.
+
 ***Example usage:***
 ```
 <x-chart stroke-width='12' percent='90%'>Graphic design</x-chart>
 <x-chart stroke-width='8' percent='75%'></x-chart>
+<x-chart percent='5%'></x-chart>
 ```
 
 

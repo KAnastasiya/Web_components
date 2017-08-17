@@ -1,0 +1,49 @@
+:host {
+  display: flex;
+  contain: content;
+}
+
+figure {
+  display: none;
+  margin: 0 75px;
+}
+
+figure.current {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+figcaption {
+  width: 75%;
+  margin: 0 0 0 30px;
+}
+
+.img {
+  min-width: 120px;
+}
+
+.text {
+  margin-bottom: 20px;
+  min-height: 50px;
+  max-height: 95px;
+  overflow: auto;
+}
+
+.author {
+  padding-left: 70px;
+  position: relative;
+}
+
+:host([layout="mobile"]) figure {
+  margin: 0 50px;
+}
+
+:host([layout="mobile"]) .img {
+  display: none;
+}
+
+:host([layout="mobile"]) figcaption {
+  width: 100%;
+  margin-left: 0;
+}
