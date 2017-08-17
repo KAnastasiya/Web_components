@@ -61,16 +61,19 @@ My first steps in learning Web-components
     - `h5` - title. Has required attribute `slot='title'`.
     - `p` - text. Has required attribute `slot='text'`.
 
---accordion-border-color
---accordion-arrow-color
---accordion-arrow-size
---accordion-img-size
---accordion-text-max-height
---accordion-scrollbar-padding-right
---accordion-scrollbar-width
---accordion-scrollbar-track-color
---accordion-scrollbar-thumb-color
---accordion-scrollbar-thumb-color
+If you want customize this element, you can use css custom properties:
+- --accordion-border-color` - ???
+- `--accordion-arrow-color` - ???
+- `--accordion-arrow-size` - ???
+- `--accordion-img-size` - ???
+- `--accordion-text-max-height` - ???
+- `--accordion-scrollbar-padding-right` - ???
+- `--accordion-scrollbar-width` - ???
+- `--accordion-scrollbar-thumb-color` - ???
+- `--accordion-scrollbar-track-color` - ???
+- `--accordion--title-bg` - ???
+- `--accordion--title-open-bg` - ???
+- `--accordion--details-bg` - ???
 
 ***Example usage:***
 ```
