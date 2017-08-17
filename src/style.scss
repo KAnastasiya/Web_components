@@ -98,6 +98,18 @@ img {
   object-position: 0 0;
 }
 
+x-accordion-item {
+  --accordion-border-color: lightgreen;
+  --accordion-arrow-color: lightgreen;
+  --accordion-arrow-size: 14px;
+  --accordion-img-size: 50px;
+  --accordion-text-max-height: 150px;
+  --accordion-scrollbar-padding-right: 10px;
+  --accordion-scrollbar-width: 5px;
+  --accordion-scrollbar-thumb-color: lightgreen;
+  --accordion-scrollbar-track-color: #eee;
+}
+
 .chart {
   display: flex;
   flex-wrap: wrap;
