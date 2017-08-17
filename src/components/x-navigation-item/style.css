@@ -13,28 +13,28 @@
 :host([layout="mobile"]) {
   display: none;
   position: relative;
-  top: 60px;
+  top: 40px;
 }
 
 :host([layout="tablet"]) a,
 :host([layout="mobile"]) a {
-  color: var(--yellow);
+  color: var(--nav-mobile-font-color, #000);
   line-height: 1;
+  text-align: left;
   display: block;
   padding: 15px 25px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--nav-mobile-bg-color, rgba(255, 255, 255, 0.9));
 }
 
 :host([layout="tablet"]) a:not(.active):hover,
 :host([layout="mobile"]) a:not(.active):hover {
-  color: inherit;
+  color: var(--color-primary, yellow);
 }
 
 :host([layout="tablet"]) a.active,
 :host([layout="mobile"]) a.active {
-  color: var(--yellow);
+  color: var(--color-primary, yellow);
   border-left: 5px solid currentColor;
-  background-color: rgba(255, 255, 255, 0.3);
 }
 
 :host([layout="tablet"]) a.icon,
@@ -57,26 +57,31 @@
 :host([layout="large"]) a {
   display: inline-block;
   vertical-align: middle;
-  padding: 10px 0;
-  margin: 0 20px;
+  margin-left: 30px;
+}
+
+:host([layout="desktop"]) a:focus {
+  outline: none;
+  text-decoration: underline;
+  text-decoration-skip: ink;
 }
 
 :host([layout="large"]) a:not(.active):hover,
 :host([layout="large"]) a.active {
-  color: var(--yellow);
+  color: var(--color-primary, yellow);
 }
 
 :host([layout="large"]) a.active {
-  border-bottom: 3px solid currentColor;
+  border-bottom: var(--nav-active-border-width, 3px) solid currentColor;
 }
 
 :host([layout="large"]) a.icon {
   font-size: 0;
   width: 18px;
   height: 18px;
-  padding-right: 20px;
-  padding-left: 20px;
-  margin: 0 10px;
+  padding: 0;
+  margin-right: 0;
+  margin-left: 40px;
   background-repeat: no-repeat;
   background-position: center center;
 }

@@ -12,6 +12,7 @@ module.exports = function () {
             ],
             plugins: [
               require('babel-plugin-transform-object-rest-spread'),
+              require('babel-plugin-transform-runtime'),
             ],
           },
         }],

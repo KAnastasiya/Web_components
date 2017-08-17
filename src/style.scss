@@ -26,8 +26,8 @@ body {
 
 .container {
   width: var(--container-width);
-  margin: 40px auto;
   max-width: 730px;
+  margin: 40px auto;
 }
 
 section {
@@ -52,8 +52,8 @@ h5 {
   color: inherit;
   font-size: 1rem;
   font-weight: 400;
-  text-transform: uppercase;
   line-height: 30px;
+  text-transform: uppercase;
   margin: 0;
 }
 
@@ -96,8 +96,23 @@ cite {
 img {
   display: block;
   width: 100%;
-  height: 100%;
   max-width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: 0 0;
+}
+
+.chart {
+  display: flex;
+  justify-content: center;
+
+  x-chart {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 230px;
+
+    &:not(:last-of-type) {
+      margin-right: 20px;
+    }
+  }
 }

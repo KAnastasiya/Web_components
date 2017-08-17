@@ -43,7 +43,7 @@
       this.toggleIcon = this.querySelector('a');
       this.items = Array.from(this.querySelectorAll('x-navigation-item'));
 
-      this.items.forEach(item => {
+      this.items.forEach((item) => {
         if (item.hasAttribute('selected')) {
           item.shadowRoot.querySelector('a').classList.add('active');
         }
@@ -65,7 +65,7 @@
     }
 
     chooseItem(item) {
-      this.items.forEach(elem => {
+      this.items.forEach((elem) => {
         if (elem.hasAttribute('selected')) {
           elem.removeAttribute('selected');
           elem.shadowRoot.querySelector('a').classList.remove('active');
@@ -122,14 +122,14 @@
       this.hideMenu();
 
       const scrollItemsList = this.items
-        .map(item => {
+        .map((item) => {
           const itemValue = item.getAttribute('value');
           return !item.getAttribute('icon') ? itemValue : null;
         })
         .filter(item => item && (document.querySelector(`#${item}`).offsetTop <= getCurrentScrollPosition()));
 
       const currentItemId = scrollItemsList[scrollItemsList.length - 1] || this.items[0].getAttribute('value');
-      this.items.forEach(item => {
+      this.items.forEach((item) => {
         if (item.getAttribute('value') === currentItemId) {
           this.chooseItem(item);
         }

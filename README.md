@@ -23,6 +23,11 @@ My first steps in learning Web-components
 - `npm run build` - produces production version (with minification).
 
 
+### Updating npm-packages
+
+- `npm run update:packages` - to update all npm-packages from package.json.
+
+
 ### Components list
 
 #### 1. `<x-navigation>`
@@ -99,6 +104,20 @@ My first steps in learning Web-components
     <cite slot='author'>Mike Bin</cite>
   </x-carousel-item>
 </x-carousel>
+```
+
+#### 3. `<x-chart>`
+
+`<x-chart>` is a custom element, that draw pie chart.
+
+`<x-chart>` has attributes:
+- `percent` - percentage of the circle, that must be filled.
+- `stroke-width` - thickness of the stroke.
+
+***Example usage:***
+```
+<x-chart stroke-width='12' percent='90%'>Graphic design</x-chart>
+<x-chart stroke-width='8' percent='75%'></x-chart>
 ```
 
 

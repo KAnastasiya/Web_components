@@ -1,18 +1,29 @@
-const webpack = require('webpack');
-const WebpackHtml = require('html-webpack-plugin');
-const ExtractText = require('extract-text-webpack-plugin');
-const StyleLint = require('stylelint-webpack-plugin');
+const path = require('path');
 const webpackMerge = require('webpack-merge');
 
-const babel = require('./webpack/babel');
-const pug = require('./webpack/pug');
-const css = require('./webpack/css');
-const scss = require('./webpack/scss');
-const url = require('./webpack/url');
-const eslint = require('./webpack/eslint');
-const devServer = require('./webpack/devserver');
+const LOADERS = {
+  babel: require('./webpack/loaders/babel'),
+  pug: require('./webpack/loaders/pug'),
+  css: require('./webpack/loaders/css'),
+  scss: require('./webpack/loaders/scss'),
+  img: require('./webpack/loaders/img'),
+  eslint: require('./webpack/loaders/eslint'),
+};
 
-const path = require('path');
+const PLUGINS = {
+  html: require('./webpack/plugins/Html'),
+  define: require('./webpack/plugins/Define'),
+  extractText: require('./webpack/plugins/ExtractText'),
+  noEmitOnErrors: require('./webpack/plugins/NoEmitOnErrors'),
+  uglifyJS: require('./webpack/plugins/UglifyJs'),
+  styleLint: require('./webpack/plugins/Stylelint'),
+  hotModuleReplacement: require('./webpack/plugins/HotModuleReplacement'),
+  moduleConcatenation: require('./webpack/plugins/ModuleConcatenation'),
+  copyWebpack: require('./webpack/plugins/CopyWebpack'),
+};
+
+const devServer = require('./webpack/devserver');
+const ExtractText = require('extract-text-webpack-plugin');
 
 const PATHS = {
   source: path.resolve(__dirname, 'src'),
@@ -20,6 +31,7 @@ const PATHS = {
 };
 
 const NODE_ENV = process.env.NODE_ENV || 'dev';
+
 
 const common = webpackMerge([
   {
@@ -31,65 +43,37 @@ const common = webpackMerge([
       path: PATHS.build,
       filename: '[name].js',
     },
-    plugins: [
-      new webpack.NoEmitOnErrorsPlugin(),
-      new webpack.DefinePlugin({
-        NODE_ENV: JSON.stringify(NODE_ENV),
-      }),
-      new WebpackHtml({
-        filename: 'index.html',
-        chunks: ['index'],
-        template: './index.pug',
-      }),
-      new ExtractText({
-        filename: 'style.css',
-        allChunks: true,
-      }),
-    ],
   },
-  babel(),
-  pug(),
-  css(),
-  scss(ExtractText),
-  url('./img'),
+
+  PLUGINS.html(),
+  PLUGINS.define(NODE_ENV),
+  PLUGINS.extractText(ExtractText),
+  PLUGINS.noEmitOnErrors(),
+  PLUGINS.moduleConcatenation(),
+  PLUGINS.copyWebpack(),
+
+  LOADERS.babel(),
+  LOADERS.pug(),
+  LOADERS.css(),
+  LOADERS.scss(ExtractText),
+  LOADERS.img('./img'),
 ]);
 
-const dev = webpackMerge([
-  { devtool: 'inline-source-map' },
-  eslint(),
-]);
 
 module.exports = () => {
   if (NODE_ENV === 'prod') {
-    common.plugins.push(
-      new webpack.LoaderOptionsPlugin({
-        minimize: true,
-        debug: false,
-      }),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          collapse_vars: true,
-          comparisons: true,
-          conditionals: true,
-          dead_code: true,
-          drop_console: true,
-          drop_debugger: true,
-          evaluate: true,
-          if_return: true,
-          join_vars: true,
-          sequences: true,
-          unused: true,
-        },
-      }));
-    return common;
+    return webpackMerge([
+      common,
+      PLUGINS.uglifyJS(),
+    ]);
   }
 
-  common.plugins.push(
-    new webpack.HotModuleReplacementPlugin(),
-    new StyleLint({
-      failOnError: false,
-      quiet: false,
-      syntax: 'scss',
-    }));
-  return webpackMerge([common, dev, devServer(PATHS.build)]);
+  return webpackMerge([
+    common,
+    { devtool: 'inline-source-map' },
+    devServer(PATHS.build),
+    LOADERS.eslint(),
+    PLUGINS.styleLint(),
+    PLUGINS.hotModuleReplacement(),
+  ]);
 };

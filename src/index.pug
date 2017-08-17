@@ -14,6 +14,7 @@ html(lang='en')
     link(href='components/x-accordion/index.html', rel='import', async)
     link(href='components/x-carousel-item/index.html', rel='import', async)
     link(href='components/x-carousel/index.html', rel='import', async)
+    link(href='components/x-chart/index.html', rel='import', async)
 body
   .container
     a#navigation
@@ -57,3 +58,11 @@ body
           img(src='img/lola.png', slot='img')
           blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           cite(slot='author') Lola Mayer
+
+    a#chart
+    section
+      h2 Chart
+      .chart
+        x-chart(stroke-width='10', percent='90%') Graphic design
+        x-chart(stroke-width='8', percent='50%') Web design
+        x-chart(stroke-width='18', percent='35%')
