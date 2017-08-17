@@ -23,6 +23,10 @@ p {
   margin: 0;
 }
 
+p:not(:empty) {
+  margin-top: var(--chart-title-margin-top, 0);
+}
+
 svg {
   width: 100%;
   height: 100%;

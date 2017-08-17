@@ -118,8 +118,9 @@ If you want customize this element, you can use css custom properties:
 - `--chart-full-color-stroke` - border color, that does not corresponds to the percentage.
 - `--chart-color-stroke` - border color, that corresponds to the percentage.
 - `--chart-color-fill` - color of area inside circle.
-- `--chart-title-color` - color of text below circle.
+- `--chart-title-color` - color of text under circle.
 - `--chart-percent-color` - color of text inside circle.
+- `--chart-title-margin-top` - indentation between the text under the circle and bottom of circle.
 
 ***Example usage:***
 ```
