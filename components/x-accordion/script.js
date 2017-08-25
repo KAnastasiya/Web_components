@@ -7,7 +7,7 @@
 
       for (let i = 0; i < this.itemsCount; i++) {
         if (this.items[i].hasAttribute('selected')) {
-          this.items[i].shadowRoot.querySelector('.details').classList.add('open');
+          this.open(this.items[i]);
         }
       }
 
@@ -18,12 +18,24 @@
     onItemClick(event) {
       if (event.target.tagName === 'X-ACCORDION-ITEM' && !event.target.hasAttribute('selected')) {
         const currentItem = this.querySelector('x-accordion-item[selected]');
+        currentItem.shadowRoot.querySelector('.title').classList.remove('open');
         currentItem.shadowRoot.querySelector('.details').classList.remove('open');
         currentItem.removeAttribute('selected');
-
-        event.target.setAttribute('selected', 'true');
-        event.target.shadowRoot.querySelector('.details').classList.add('open');
+        this.close(currentItem);
+        this.open(event.target);
       }
+    }
+
+    open(elem) {
+      elem.setAttribute('selected', 'true');
+      elem.shadowRoot.querySelector('.title').classList.add('open');
+      elem.shadowRoot.querySelector('.details').classList.add('open');
+    }
+
+    close(elem) {
+      elem.removeAttribute('selected', 'true');
+      elem.shadowRoot.querySelector('.title').classList.remove('open');
+      elem.shadowRoot.querySelector('.details').classList.remove('open');
     }
   };
 

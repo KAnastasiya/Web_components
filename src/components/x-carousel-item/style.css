@@ -1,11 +1,15 @@
 :host {
+  --text-margin-bottom: 20px;
+
   display: flex;
   contain: content;
+  background-color: var(--carousel-bg, transparent);
 }
 
 figure {
   display: none;
-  margin: 0 75px;
+  min-height: calc(var(--carousel-text-max-height, 100px) + var(--text-margin-bottom, 20px) + 40px);
+  margin: 0 var(--carousel-margin-horizontal, 75px);
 }
 
 figure.current {
@@ -14,20 +18,38 @@ figure.current {
   align-items: center;
 }
 
-figcaption {
-  width: 75%;
-  margin: 0 0 0 30px;
+.img {
+  flex: 0 1;
+  min-width: var(--carousel-img-size, 120px);
+  margin-right: 30px;
 }
 
-.img {
-  min-width: 120px;
+figcaption {
+  flex: 1 1;
 }
 
 .text {
-  margin-bottom: 20px;
   min-height: 50px;
-  max-height: 95px;
+  max-height: var(--carousel-text-max-height, 100px);
+  padding-right: var(--carousel-scrollbar-padding-right, 8px);
+  margin-bottom: var(--text-margin-bottom, 20px);
   overflow: auto;
+}
+
+.text::-webkit-scrollbar {
+  width: var(--carousel-scrollbar-width, 10px);
+}
+
+.text::-webkit-scrollbar-thumb {
+  background-color: var(--carousel-scrollbar-thumb-color, #999);
+}
+
+.text::-webkit-scrollbar-thumb:hover {
+  filter: opacity(0.2);
+}
+
+.text::-webkit-scrollbar-track {
+  background-color: var(--carousel-scrollbar-track-color, #eee);
 }
 
 .author {
@@ -35,10 +57,7 @@ figcaption {
   position: relative;
 }
 
-:host([layout="mobile"]) figure {
-  margin: 0 50px;
-}
-
+/** Mobile and tablet **/
 :host([layout="mobile"]) .img {
   display: none;
 }

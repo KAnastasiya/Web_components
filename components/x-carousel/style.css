@@ -5,14 +5,13 @@
 
 x-carousel {
   display: flex;
-  height: 210px;
   position: relative;
 }
 
 .btn {
   font-size: 0;
-  width: 25px;
-  height: 25px;
+  width: var(--carousel-arrow-size, 16px);
+  height: var(--carousel-arrow-size, 16px);
   padding: 0;
   border: none;
   background-color: transparent;
@@ -22,11 +21,11 @@ x-carousel {
 }
 
 .btn::before {
-  --border: 3px solid #ccc;
+  --border: 3px solid var(--carousel-arrow-color, #ccc);
 
   content: '';
-  width: 16px;
-  height: 16px;
+  width: 100%;
+  height: 100%;
   border-right: var(--border);
   border-bottom: var(--border);
   margin-top: -50%;
@@ -35,33 +34,31 @@ x-carousel {
 }
 
 .btn--prev {
-  left: 0;
+  left: 10px;
 }
 
 .btn--prev::before {
   margin-right: -50%;
-  right: 50%;
+  right: 35%;
   transform: rotate(135deg);
 }
 
 .btn--next {
-  right: 0;
+  right: 10px;
 }
 
 .btn--next::before {
   margin-left: -50%;
-  left: 50%;
+  left: 35%;
   transform: rotate(-45deg);
 }
 
 .btn:focus {
-  outline: none;
+  outline: 2px solid var(--carousel-arrow-outline-color, yellow);
+  outline-offset: 5px;
 }
 
-.btn:hover::before {
-  color: #666;
-}
-
+.btn:hover::before,
 .btn:active::before {
-  color: #eee;
+  opacity: 0.6;
 }

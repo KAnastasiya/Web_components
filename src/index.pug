@@ -20,11 +20,12 @@ body
     a#navigation
     section
       h2 Navigation
-      x-navigation
-        x-navigation-item(value='navigation', selected) Navigation
-        x-navigation-item(value='accordion') Accordion
-        x-navigation-item(value='carousel') Carousel
-        x-navigation-item(value='chart') Chart
+      .navigation
+        x-navigation
+          x-navigation-item(data-value='navigation', selected) Navigation
+          x-navigation-item(data-value='accordion') Accordion
+          x-navigation-item(data-value='carousel') Carousel
+          x-navigation-item(data-value='chart') Chart
 
     a#accordion
     section
@@ -58,27 +59,39 @@ body
     a#carousel
     section
       h2 Carousel
-      x-carousel
-        x-carousel-item(selected)
-          img(src='img/joshua.png', slot='img')
-          blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-          cite(slot='author') Joshua Earle
-        x-carousel-item
-          img(src='img/mike.png', slot='img')
-          blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          cite(slot='author') Mike Bin
-        x-carousel-item
-          img(src='img/lola.png', slot='img')
-          blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          cite(slot='author') Lola Mayer
+      .carousel
+        x-carousel
+          x-carousel-item(selected)
+            img(src='img/joshua.png', slot='img')
+            blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+            cite(slot='author') Joshua Earle
+          x-carousel-item
+            img(src='img/mike.png', slot='img')
+            blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            cite(slot='author') Mike Bin
+          x-carousel-item
+            img(src='img/lola.png', slot='img')
+            blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            cite(slot='author') Lola Mayer
+
+      .carousel
+        x-carousel
+          x-carousel-item(selected)
+            img(src='img/joshua.png', slot='img')
+            blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+            cite(slot='author') Joshua Earle
+          x-carousel-item
+            img(src='img/mike.png', slot='img')
+            blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            cite(slot='author') Mike Bin
 
     a#chart
     section
       h2 Chart
       .chart
-        x-chart(percent='100%') Web design
-        x-chart(stroke-width='8', percent='75%') Graphic design
-        x-chart(stroke-width='12', percent='55%')
-        x-chart(percent='35%')
-        x-chart(percent='21%')
-        x-chart(stroke-width='15', percent='5%') CSS / HTML
+        x-chart(data-percent='100%') Web design
+        x-chart(data-stroke-width='8', data-percent='75%') Graphic design
+        x-chart(data-stroke-width='12', data-percent='55%')
+        x-chart(data-percent='35%')
+        x-chart(data-percent='21%')
+        x-chart(data-stroke-width='15', data-percent='5%') CSS / HTML

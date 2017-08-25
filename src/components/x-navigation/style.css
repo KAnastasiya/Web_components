@@ -1,11 +1,4 @@
-x-navigation[layout='large'] {
-  position: relative;
-}
-
-x-navigation[layout='large'] .toggle {
-  display: none;
-}
-
+/* Mobile and tablet */
 x-navigation[layout='tablet'],
 x-navigation[layout='mobile'] {
   --nav-min-width: 150px;
@@ -15,8 +8,9 @@ x-navigation[layout='mobile'] {
 
   min-width: var(--nav-mobile-min-width, var(--nav-min-width));
   position: absolute;
-  top: var(--nav-toggle-icon-top, 0);
+  top: 0;
   right: 0;
+  z-index: 999;
 }
 
 x-navigation[layout='mobile'] {
@@ -38,7 +32,7 @@ x-navigation[layout='mobile'] .toggle {
 
 x-navigation[layout='tablet'] .toggle:focus,
 x-navigation[layout='mobile'] .toggle:focus {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--nav-toggle-icon-outline-color, yellow);
   outline-offset: 5px;
 }
 
@@ -46,7 +40,7 @@ x-navigation[layout='mobile'] .toggle:focus {
   display: block;
   width: 100%;
   height: var(--nav-toggle-line-height, var(--line-height));
-  background: var(--color-primary, yellow);
+  background: var(--nav-toggle-icon-line-color, yellow);
   position: absolute;
   left: 0;
   transition: all 400ms;
@@ -84,4 +78,13 @@ x-navigation[layout='mobile'] .toggle:focus {
 
 .toggle.active .line-3 {
   transform: translateY(calc(-1 * var(--nav-toggle-icon-height, var(--icon-height)) / 2)) translateX(0) rotate(-45deg);
+}
+
+/* Destop */
+x-navigation[layout='desktop'] {
+  position: relative;
+}
+
+x-navigation[layout='desktop'] .toggle {
+  display: none;
 }

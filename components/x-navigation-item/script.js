@@ -8,12 +8,12 @@
       this.attachShadow({ mode: 'open' });
 
       const link = componentTemplate.querySelector('a');
-      link.setAttribute('href', `#${this.getAttribute('value')}`);
+      link.setAttribute('href', `#${this.getAttribute('data-value')}`);
       link.textContent = this.textContent;
 
       if (this.hasAttribute('icon')) {
         link.classList.add('icon');
-        link.style.backgroundImage = `url(${this.getAttribute('icon')})`;
+        link.style.backgroundImage = `url(${this.getAttribute('data-icon')})`;
       }
 
       this.shadowRoot.appendChild(componentTemplate.cloneNode(true));

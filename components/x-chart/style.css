@@ -4,6 +4,7 @@
   text-align: center;
   min-width: 100px;
   max-width: 160px;
+  contain: content;
 }
 
 .chart {
@@ -21,6 +22,10 @@ p {
   font-size: 1.7em;
   font-weight: 400;
   margin: 0;
+}
+
+p:not(:empty) {
+  margin-top: var(--chart-title-margin-top, 0);
 }
 
 svg {

@@ -75,7 +75,7 @@
       item.setAttribute('selected', 'true');
       item.shadowRoot.querySelector('a').classList.add('active');
 
-      const hash = `#${item.getAttribute('value')}`;
+      const hash = `#${item.getAttribute('data-value')}`;
       history.replaceState({ page: `${hash}` }, '', `${hash}`);
     }
 
@@ -101,7 +101,7 @@
         const body = document.body;
         const element = event.target;
         const position = getCurrentScrollPosition();
-        const href = `#${element.getAttribute('value')}`;
+        const href = `#${element.getAttribute('data-value')}`;
 
         const targetOffset = document.querySelector(href).offsetTop;
         const scrollTranslate = (targetOffset > position) ? `-${targetOffset - position}` : (position - targetOffset);
@@ -123,14 +123,14 @@
 
       const scrollItemsList = this.items
         .map((item) => {
-          const itemValue = item.getAttribute('value');
+          const itemValue = item.getAttribute('data-value');
           return !item.getAttribute('icon') ? itemValue : null;
         })
         .filter(item => item && (document.querySelector(`#${item}`).offsetTop <= getCurrentScrollPosition()));
 
-      const currentItemId = scrollItemsList[scrollItemsList.length - 1] || this.items[0].getAttribute('value');
+      const currentItemId = scrollItemsList[scrollItemsList.length - 1] || this.items[0].getAttribute('data-value');
       this.items.forEach((item) => {
-        if (item.getAttribute('value') === currentItemId) {
+        if (item.getAttribute('data-value') === currentItemId) {
           this.chooseItem(item);
         }
       });
@@ -140,7 +140,7 @@
       if (window.matchMedia('(min-width: 480px)').matches && window.matchMedia('(max-width: 1209px)').matches) {
         this.setPageSizeMode('tablet');
       } else if (window.matchMedia('(min-width: 1210px)').matches) {
-        this.setPageSizeMode('large');
+        this.setPageSizeMode('desktop');
       } else {
         this.setPageSizeMode('mobile');
       }

@@ -12,7 +12,7 @@
 
       this.chart.querySelector('p').innerHTML = this.innerHTML;
 
-      const percent = this.getAttribute('percent');
+      const percent = this.getAttribute('data-percent');
       const text = this.svg.querySelector('text');
       const textX = (percent.length === 4) ? '25' : (percent.length === 3) ? '40' : '55';
 
@@ -20,7 +20,7 @@
       text.setAttribute('x', textX);
 
       const circleList = this.svg.querySelectorAll('circle');
-      const strokeWidth = this.getAttribute('stroke-width');
+      const strokeWidth = this.getAttribute('data-stroke-width');
 
       if (strokeWidth) {
         Array.from(circleList).forEach(circle => circle.setAttribute('stroke-width', strokeWidth));
