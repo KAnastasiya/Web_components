@@ -7,91 +7,110 @@ html(lang='en')
     title Web-components
     link(rel='icon' type='image/x-icon', href='favicon.ico')
     link(href='https://fonts.googleapis.com/css?family=Kaushan+Script|Roboto:300,400,700&amp;subset=latin-ext', rel='stylesheet')
-    link(href='style.css', rel='stylesheet')
-    link(href='components/x-navigation-item/index.html', rel='import', async)
-    link(href='components/x-navigation/index.html', rel='import', async)
-    link(href='components/x-accordion-item/index.html', rel='import', async)
-    link(href='components/x-accordion/index.html', rel='import', async)
-    link(href='components/x-carousel-item/index.html', rel='import', async)
-    link(href='components/x-carousel/index.html', rel='import', async)
-    link(href='components/x-chart/index.html', rel='import', async)
+    link(href='components/x-navigation/index.html', rel='import')
+    link(href='components/x-navigation-item/index.html', rel='import')
+    link(href='components/x-accordion/index.html', rel='import')
+    link(href='components/x-accordion-item/index.html', rel='import')
+    link(href='components/x-carousel/index.html', rel='import')
+    link(href='components/x-carousel-item/index.html', rel='import')
+    link(href='components/x-chart/index.html', rel='import')
 body
-  .container
-    a#navigation
-    section
+  a#navigation
+  section.section.section--navigation
+    .container
       h2 Navigation
       .navigation
         x-navigation
-          x-navigation-item(data-value='navigation', selected) Navigation
-          x-navigation-item(data-value='accordion') Accordion
-          x-navigation-item(data-value='carousel') Carousel
-          x-navigation-item(data-value='chart') Chart
+          x-navigation-item(value='navigation', slot='item', selected) Navigation
+          x-navigation-item(value='accordion', slot='item') Accordion
+          x-navigation-item(value='carousel', slot='item') Carousel
+          x-navigation-item(value='chart', slot='item') Chart
 
-    a#accordion
-    section
+        x-navigation
+          x-navigation-item(value='navigation', slot='item', selected) Navigation
+          x-navigation-item(value='accordion', slot='item') Accordion
+          x-navigation-item(value='carousel', slot='item') Carousel
+          x-navigation-item(value='chart', slot='item') Chart
+
+  a#accordion
+  section.section.section--accordion
+    .container
       h2 Accordion
-      .accordion
-        x-accordion
-          x-accordion-item(selected)
-            img(src='img/photo.svg', slot='img')
-            h5(slot='title') Photography
-            p(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          x-accordion-item
-            img(src='img/creativity.svg', slot='img')
-            h5(slot='title') Creativity
-            p(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          x-accordion-item
-            img(src='img/design.svg', slot='img')
-            h5(slot='title') Web Design
-            p(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      x-accordion
+        x-accordion-item(
+          slot='item',
+          title='Photography',
+          icon='img/photo.svg'
+        ) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        x-accordion-item(
+          slot='item',
+          title='Web Design',
+          icon='img/design.svg'
+        ) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-      .accordion
-        x-accordion
-          x-accordion-item
-            img(src='img/photo.svg', slot='img')
-            h5(slot='title') Photography
-            p(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          x-accordion-item(selected)
-            img(src='img/design.svg', slot='img')
-            h5(slot='title') Web Design
-            p(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      x-accordion
+        x-accordion-item(
+          slot='item',
+          title='Test1'
+        ) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        x-accordion-item(
+          slot='item',
+          title='Test2',
+          selected
+        ) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        x-accordion-item(
+          slot='item',
+          title='Test3',
+        ) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-    a#carousel
-    section
+  a#carousel
+  section.section.section--carousel
+    .container
       h2 Carousel
-      .carousel
-        x-carousel
-          x-carousel-item(selected)
-            img(src='img/joshua.png', slot='img')
-            blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-            cite(slot='author') Joshua Earle
-          x-carousel-item
-            img(src='img/mike.png', slot='img')
-            blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            cite(slot='author') Mike Bin
-          x-carousel-item
-            img(src='img/lola.png', slot='img')
-            blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            cite(slot='author') Lola Mayer
+      x-carousel
+        x-carousel-item(
+          slot='item',
+          author='Joshua Earle',
+          icon='img/joshua.png'
+        ) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+        x-carousel-item(
+          slot='item',
+          author='Mike Bin',
+          icon='img/mike.png'
+        ) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        x-carousel-item(
+          slot='item',
+          author='Lola Mayer',
+          icon='img/lola.png'
+        ) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 
-      .carousel
-        x-carousel
-          x-carousel-item(selected)
-            img(src='img/joshua.png', slot='img')
-            blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-            cite(slot='author') Joshua Earle
-          x-carousel-item
-            img(src='img/mike.png', slot='img')
-            blockquote(slot='text') Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            cite(slot='author') Mike Bin
+      x-carousel
+        x-carousel-item(
+          slot='item',
+          author='Joshua Earle',
+          icon='img/joshua.png'
+        ) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        x-carousel-item(
+          slot='item',
+          author='Mike Bin',
+          icon='img/mike.png',
+          selected
+        ) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
 
-    a#chart
-    section
+      x-carousel
+        x-carousel-item(
+          slot='item',
+          author='Joshua Earle'
+        ) Ut enim ad minim veniam, quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+
+  a#chart
+  section.section.section--charts
+    .container
       h2 Chart
-      .chart
-        x-chart(data-percent='100%') Web design
-        x-chart(data-stroke-width='8', data-percent='75%') Graphic design
-        x-chart(data-stroke-width='12', data-percent='55%')
-        x-chart(data-percent='35%')
-        x-chart(data-percent='21%')
-        x-chart(data-stroke-width='15', data-percent='5%') CSS / HTML
+      .charts
+        x-chart(percent='9%') Web design
+        x-chart(percent='21%')
+        x-chart(stroke-width='12',percent='35%') HTML / CSS
+        x-chart(stroke-width='8', percent='55%')
+        x-chart(percent='75%') Graphic design
+        x-chart(stroke-width='15', percent='100%')

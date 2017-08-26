@@ -1,0 +1,103 @@
+x-navigation:last-of-type {
+  --nav-mobile-right: 0;
+  --nav-mobile-left: initial;
+  --nav-toggle-margins: 0 0 0 auto;
+  --nav-mobile-min-width: 200px;
+  --nav-mobile-bg: $color-add-2--light;
+  --nav-toggle-width: 20px;
+  --nav-toggle-color: $color-main;
+  --nav-toggle-focus-color: $color-add-1--light;
+  --nav-toggle-line-height: 4px;
+
+  x-navigation-item {
+    --nav-font-color: #666;
+    --nav-current-color: $color-main;
+    --nav-current-border-width: 2px;
+    --nav-hover-color: $color-add-1;
+
+    font-family: $font-family--add;
+  }
+}
+
+x-accordion:last-of-type x-accordion-item {
+  --accordion-header-bg: $color-add-2;
+  --accordion-details-bg: $color-add-2--light;
+  --accordion-header-color: $color-main;
+  --accordion-text-color: $color-add-1;
+  --accordion-text-max-height: 100px;
+  --accordion-arrow-color: $color-add-1--light;
+  --accordion-arrow-size: 6px;
+  --accordion-border-color: $color-add-1--light;
+  --accordion-scrollbar-width: 5px;
+  --accordion-scrollbar-thumb-color: $color-add-1--light;
+  --accordion-scrollbar-track-color: $color-add-2;
+  --accordion-scrollbar-padding-right: 5px;
+  --accordion-header-margin-bottom: -1px;
+
+  font-family: $font-family--add;
+}
+
+x-carousel {
+  &:nth-of-type(2) {
+    --carousel-bg: $color-add-2--light;
+    --carousel-arrow-size: 10px;
+    --carousel-arrow-color: $color-add-1;
+    --carousel-arrow-outline-color: $color-add-1--light;
+
+    x-carousel-item {
+      --carousel-padding-vertical: 30px;
+      --carousel-img-size: 200px;
+      --carousel-blockquote-color: $color-add-1;
+      --carousel-blockquote-style: normal;
+      --carousel-blockquote-max-height: 200px;
+      --carousel-cite-line-color: $color-main;
+      --carousel-margin-horizontal: 40px;
+      --carousel-scrollbar-width: 5px;
+      --carousel-scrollbar-thumb-color: $color-add-1;
+      --carousel-scrollbar-track-color: $color-add-1--light;
+      --carousel-scrollbar-padding-right: 5px;
+
+      font-family: $font-family--add;
+    }
+  }
+
+  &:last-of-type {
+    --carousel-bg: $color-add-1--light;
+    --carousel-arrow-size: 20px;
+    --carousel-arrow-color: $color-main--light;
+    --carousel-arrow-outline-color: $color-add-2;
+
+    x-carousel-item {
+      --carousel-margin-horizontal: 30px;
+      --carousel-blockquote-max-height: 100%;
+      --carousel-padding-vertical: 35px;
+      --carousel-blockquote-margin-bottom: 25px;
+      --carousel-blockquote-min-height: 70px;
+      --carousel-cite-font-family: 'Kaushan Script', cursive;
+      --carousel-cite-line-width: 0;
+      --carousel-cite-color: $color-main;
+      --carousel-cite-text-align: right;
+      --carousel-scrollbar-thumb-color: $color-add-2;
+    }
+  }
+}
+
+x-chart {
+  &:nth-of-type(3),
+  &:nth-of-type(4) {
+    --chart-min-size: 5em;
+    --chart-max-size: 14em;
+  }
+
+  &:nth-last-of-type(-n+2) {
+    --chart-color-fill: $color-add-2--light;
+    --chart-full-color-stroke: $color-add-1--light;
+    --chart-color-stroke: $color-main--light;
+    --chart-percent-color: $color-add-1;
+    --chart-title-color: $color-add-1;
+    --chart-title-margin-top: 5px;
+
+    font-family: $font-family--add;
+    font-size: 12px;
+  }
+}
