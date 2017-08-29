@@ -1,6 +1,9 @@
 <template>
   <style scoped>@import url("components/x-carousel/style.css")</style>
-  <button type="button" class="btn btn--prev">Prev</button>
-  <button type="button" class="btn btn--next">Next</button>
+  <div class="carousel">
+    <button type="button" class="btn btn--prev">Prev</button>
+    <slot name="item"></slot>
+    <button type="button" class="btn btn--next">Next</button>
+  </div>
 </template>
 <script src="script.js"></script>

@@ -1,26 +1,43 @@
 :host {
-  --border: 1px solid var(--accordion-border-color, #e5e5e5);
-
-  display: block;
-  contain: content;
+  --accordion-header-bg: #fff;
+  --accordion-header-open-bg: var(--accordion-header-bg);
+  --accordion-details-bg: var(--accordion-header-bg);
+  --accordion-header-color: inherit;
+  --accordion-header-open-color: var(--accordion-header-color);
+  --accordion-text-color: #999;
+  --accordion-text-max-height: 100px;
+  --accordion-img-size: 30px;
+  --accordion-arrow-color: #ccc;
+  --accordion-arrow-size: 10px;
+  --accordion-border-color: #e5e5e5;
+  --accordion-scrollbar-width: 10px;
+  --accordion-scrollbar-thumb-color: #999;
+  --accordion-scrollbar-track-color: #eee;
+  --accordion-scrollbar-padding-right: 8px;
+  --accordion-header-margin-bottom: 10px;
 }
 
-.title {
+.header {
   display: flex;
   align-items: center;
   padding: 15px;
-  border: var(--border);
-  margin-bottom: 10px;
-  background-color: var(--accordion--title-bg, transparent);
+  border: 1px solid var(--accordion-border-color);
+  margin-bottom: var(--accordion-header-margin-bottom);
+  background-color: var(--accordion-header-bg);
   position: relative;
   cursor: pointer;
 }
 
-.title::after {
+.item[selected] .header {
+  background-color: var(--accordion-header-open-bg);
+  cursor: initial;
+}
+
+.header::after {
   content: '';
-  color: var(--accordion-arrow-color, #ccc);
-  width: var(--accordion-arrow-size, 10px);
-  height: var(--accordion-arrow-size, 10px);
+  color: var(--accordion-arrow-color);
+  width: var(--accordion-arrow-size);
+  height: var(--accordion-arrow-size);
   border-right: 3px solid currentColor;
   border-bottom: 3px solid currentColor;
   position: absolute;
@@ -29,58 +46,84 @@
   transform: translateY(-50%) rotate(45deg);
 }
 
-.title.open {
-  background-color: var(--accordion--title-open-bg, transparent);
+.item[selected] .header::after {
+  transform: translateY(-50%) rotate(225deg);
+}
+
+h5 {
+  color: var(--accordion-header-color);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin: 0 0 0 10px;
+}
+
+.item[selected] h5 {
+  --accordion-header-color: var(--accordion-header-open-color);
+
+  font-weight: 700;
 }
 
 .img {
-  width: var(--accordion-img-size, 30px);
-  height: var(--accordion-img-size, 30px);
-  margin-right: 20px;
+  width: var(--accordion-img-size);
+  height: var(--accordion-img-size);
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 0;
 }
 
 .details {
   width: 1px;
   height: 1px;
   padding: 20px 20px 30px;
-  border-top: var(--border);
+  border-top: 1px solid var(--accordion-border-color);
+  background-color: var(--accordion-details-bg);
   position: absolute;
   overflow: hidden;
   clip: rect(0 0 0 0);
 }
 
-.details.open {
+.item[selected] .details {
   width: auto;
   height: auto;
-  border: var(--border);
-  margin-bottom: 10px;
-  background-color: var(--accordion--details-bg, transparent);
+  border: 1px solid var(--accordion-border-color);
+  margin-bottom: var(--accordion-header-margin-bottom);
   position: static;
   overflow: visible;
   clip: auto;
   animation: fadeIn ease-in 0.5s;
 }
 
-.text {
-  max-height: var(--accordion-text-max-height, 105px);
-  padding-right: var(--accordion-scrollbar-padding-right, 8px);
+p {
+  color: var(--accordion-text-color, inherit);
+  font-size: 1.1rem;
+  max-height: var(--accordion-text-max-height);
+  padding-right: var(--accordion-scrollbar-padding-right);
+  margin: 0;
   overflow: auto;
 }
 
-.text::-webkit-scrollbar {
-  width: var(--accordion-scrollbar-width, 10px);
+p::-webkit-scrollbar {
+  width: var(--accordion-scrollbar-width);
 }
 
-.text::-webkit-scrollbar-thumb {
-  background-color: var(--accordion-scrollbar-thumb-color, #999);
+p::-webkit-scrollbar-thumb {
+  background-color: var(--accordion-scrollbar-thumb-color);
 }
 
-.text::-webkit-scrollbar-thumb:hover {
+p::-webkit-scrollbar-thumb:hover {
   filter: opacity(0.2);
 }
 
-.text::-webkit-scrollbar-track {
-  background-color: var(--accordion-scrollbar-track-color, #eee);
+p::-webkit-scrollbar-track {
+  background-color: var(--accordion-scrollbar-track-color);
 }
 
 @keyframes fadeIn {

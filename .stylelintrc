@@ -10,6 +10,9 @@
     "selector-type-no-unknown":  [ true, {
       "ignore": ["custom-elements"]
     } ],
+    "selector-pseudo-class-no-unknown": [true, {
+      "ignorePseudoClasses": ["defined"]
+    }],
     "order/order": [
       "custom-properties",
       "dollar-variables",

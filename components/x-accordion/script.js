@@ -1,43 +1,63 @@
 (function () {
-  window.XAccordion = class XAccordion extends HTMLElement {
+  class XAccordion extends HTMLElement {
     constructor() {
       super();
-      this.items = this.querySelectorAll('x-accordion-item');
-      this.itemsCount = this.items.length;
-
-      for (let i = 0; i < this.itemsCount; i++) {
-        if (this.items[i].hasAttribute('selected')) {
-          this.open(this.items[i]);
-        }
-      }
-
-      this.onItemClick = this.onItemClick.bind(this);
-      this.addEventListener('click', this.onItemClick);
+      const shadowRoot = this.attachShadow({ mode: 'open' });
+      const doc = document.currentScript.ownerDocument;
+      const temp = doc.querySelector('template');
+      const instance = temp.content.cloneNode(true);
+      shadowRoot.appendChild(instance);
     }
 
-    onItemClick(event) {
-      if (event.target.tagName === 'X-ACCORDION-ITEM' && !event.target.hasAttribute('selected')) {
-        const currentItem = this.querySelector('x-accordion-item[selected]');
-        currentItem.shadowRoot.querySelector('.title').classList.remove('open');
-        currentItem.shadowRoot.querySelector('.details').classList.remove('open');
-        currentItem.removeAttribute('selected');
-        this.close(currentItem);
-        this.open(event.target);
-      }
+    connectedCallback() {
+      this.childTagName = 'x-accordion-item';
+      this.addEventListener('change', this.onChange);
+
+      Promise.all([customElements.whenDefined(this.childTagName)])
+        .then(() => {
+          const selectedItem = this.items.find(item => item.hasAttribute('selected'));
+          if (!selectedItem) {
+            this.items[0].selected = true;
+          }
+
+          const styles = getComputedStyle(this.items[0]);
+          const headerMarginBottom = styles.getPropertyValue('--accordion-header-margin-bottom');
+          if (parseInt(headerMarginBottom) < 0) {
+            const borderColor = styles.getPropertyValue('--accordion-border-color');
+            this.style.borderBottom = `1px solid ${borderColor}`;
+          }
+        });
     }
 
-    open(elem) {
-      elem.setAttribute('selected', 'true');
-      elem.shadowRoot.querySelector('.title').classList.add('open');
-      elem.shadowRoot.querySelector('.details').classList.add('open');
+    disconnectedCallback() {
+      this.removeEventListener('change', this.onChange);
     }
 
-    close(elem) {
-      elem.removeAttribute('selected', 'true');
-      elem.shadowRoot.querySelector('.title').classList.remove('open');
-      elem.shadowRoot.querySelector('.details').classList.remove('open');
+    closeAll() {
+      this.items.forEach((elem) => {
+        const item = elem;
+        item.selected = false;
+      });
     }
-  };
 
-  window.customElements.define('x-accordion', window.XAccordion);
+    open(item) {
+      this.closeAll();
+      this.constructor.openSelected(item);
+    }
+
+    onChange(event) {
+      this.open(event.target);
+    }
+
+    get items() {
+      return Array.from(this.querySelectorAll(this.childTagName));
+    }
+
+    static openSelected(elem) {
+      const item = elem;
+      item.selected = true;
+    }
+  }
+
+  window.customElements.define('x-accordion', XAccordion);
 }());
