@@ -1,4 +1,4 @@
-(function () {
+(function() {
   class XNavigationItem extends HTMLElement {
     static get observedAttributes() {
       return ['selected'];
@@ -73,4 +73,4 @@
   }
 
   window.customElements.define('x-navigation-item', XNavigationItem);
-}());
+})();

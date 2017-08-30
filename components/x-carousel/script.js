@@ -1,4 +1,4 @@
-(function () {
+(function() {
   class XCarousel extends HTMLElement {
     static get observedAttributes() {
       return ['mobile'];
@@ -22,23 +22,22 @@
       this.maxMobileWidth = 1210; // px
       this.addEventListener('change', this.onChange);
 
-      Promise.all([customElements.whenDefined(this.childTagName)])
-        .then(() => {
-          const selectedItem = this.items.find(item => item.hasAttribute('selected'));
-          if (!selectedItem) {
-            this.items[0].selected = true;
-          }
+      Promise.all([customElements.whenDefined(this.childTagName)]).then(() => {
+        const selectedItem = this.items.find(item => item.hasAttribute('selected'));
+        if (!selectedItem) {
+          this.items[0].selected = true;
+        }
 
-          if (this.items.length > 1) {
-            this.prevBtn.addEventListener('click', this.onPrevClick.bind(this));
-            this.nextBtn.addEventListener('click', this.onNextClick.bind(this));
-          } else {
-            this.prevBtn.style.display = 'none';
-            this.nextBtn.style.display = 'none';
-          }
+        if (this.items.length > 1) {
+          this.prevBtn.addEventListener('click', this.onPrevClick.bind(this));
+          this.nextBtn.addEventListener('click', this.onNextClick.bind(this));
+        } else {
+          this.prevBtn.style.display = 'none';
+          this.nextBtn.style.display = 'none';
+        }
 
-          this.onResize();
-        });
+        this.onResize();
+      });
 
       window.addEventListener('resize', this.onResize.bind(this));
     }
@@ -48,14 +47,14 @@
     }
 
     attributeChangedCallback(name, oldVal, newVal) {
-      this.items.map((elem) => {
+      this.items.map(elem => {
         const item = elem;
         return (item.mobile = !!newVal);
       });
     }
 
     unselectAll() {
-      this.items.forEach((elem) => {
+      this.items.forEach(elem => {
         const item = elem;
         item.selected = false;
       });
@@ -95,12 +94,12 @@
     }
 
     get prevItem() {
-      const prevIndex = (this.selectedIndex === 0) ? (this.items.length - 1) : (this.selectedIndex - 1);
+      const prevIndex = this.selectedIndex === 0 ? this.items.length - 1 : this.selectedIndex - 1;
       return this.items[prevIndex];
     }
 
     get nextItem() {
-      const nextIndex = (this.selectedIndex >= this.items.length - 1) ? 0 : (this.selectedIndex + 1);
+      const nextIndex = this.selectedIndex >= this.items.length - 1 ? 0 : this.selectedIndex + 1;
       return this.items[nextIndex];
     }
 
@@ -119,4 +118,4 @@
   }
 
   window.customElements.define('x-carousel', XCarousel);
-}());
+})();
