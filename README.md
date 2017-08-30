@@ -35,35 +35,29 @@ My first steps in learning Web-components
 `<x-navigation>` is a custom element that contains list of navigation items - `<x-navigation-item>` (another custom elements).
 
 `<x-navigation-item>` has 3 attributes:
-
 - `slot` - required helper, that always must be equal `item`.
 - `value` - anchor name to navigation item (without `#`). *For example, if `value = 'contacts'`, than `<a href='#contacts'>`*.
 - `selected` - is showing, which item is chosen now. If this attribute is not specified for any item, the first item will be selected.
 
 If you want customize this element, you can use CSS Custom Properties:
-1. `x-navigation`:
-
-- `--nav-mobile-top` -         (default = 0)
-- `--nav-mobile-right` -       (default = initial)
-- `--nav-mobile-bottom` -      (default = initial)
-- `--nav-mobile-left` -        (default = 0)
-- `--nav-toggle-margins` -     (default = 0 auto 0 0)
-- `--nav-mobile-min-width` -   (default = 0)
-- `--nav-mobile-bg` -          (default = #fff)
-- `--nav-toggle-width` -       (default = 30px)
-- `--nav-toggle-color` -       (default = #95e1d3)
-- `--nav-toggle-focus-color` - (default = #95e1d3)
-- `--nav-toggle-line-height` - (default = 3px)
-
-2. `x-navigation-item`:
-
-- `--nav-font-color` -           (default = #000)
-- `--nav-current-color` -        (default = #95e1d3)
-- `--nav-current-border-width` - (default = 3px)
-- `--nav-hover-color` -          (default = #95e1d3)
-- `--nav-mobile-font-color` -    (default = #000)
-- `--nav-mobile-hover-color` -   (default = #95e1d3)
-- `--nav-mobile-current-color` - (default = #95e1d3)
+- `--nav-mobile-top` -           *(default = 0)*
+- `--nav-mobile-right` -         *(default = initial)*
+- `--nav-mobile-bottom` -        *(default = initial)*
+- `--nav-mobile-left` -          *(default = 0)*
+- `--nav-toggle-margins` -       *(default = 0 auto 0 0)*
+- `--nav-mobile-min-width` -     *(default = 0)*
+- `--nav-mobile-bg` -            *(default = #fff)*
+- `--nav-toggle-width` -         *(default = 30px)*
+- `--nav-toggle-color` -         *(default = #95e1d3)*
+- `--nav-toggle-focus-color` -   *(default = #95e1d3)*
+- `--nav-toggle-line-height` -   *(default = 3px)*
+- `--nav-font-color` -           *(default = #000)*
+- `--nav-current-color` -        *(default = #95e1d3)*
+- `--nav-current-border-width` - *(default = 3px)*
+- `--nav-hover-color` -          *(default = #95e1d3)*
+- `--nav-mobile-font-color` -    *(default = #000)*
+- `--nav-mobile-hover-color` -   *(default = #95e1d3)*
+- `--nav-mobile-current-color` - *(default = #95e1d3)*
 
 ***Example usage:***
 ```
@@ -79,7 +73,6 @@ If you want customize this element, you can use CSS Custom Properties:
 `<x-accordion>` is a custom element that contains list of accordion items - `<x-accordion-item>` (another custom elements). Only one items in list can be opened at the same time.
 
 `<x-accordion-item>` 4 attributes:
-
 - `slot` - helper, that always must be equal `item` (required).
 - `title` - title of the accordions item (required).
 - `icon` - icon of the accordions item (optional).
@@ -88,23 +81,22 @@ If you want customize this element, you can use CSS Custom Properties:
 Text of accordions item you must enter as a value of tag <x-accordion-item> (between opening and closing tags).
 
 If you want customize this element, you can use CSS Custom Properties for `x-accordion-item`:
-
-- `--accordion-header-bg` -              (default = #fff)
-- `--accordion-header-open-bg -          (default = #fff)
-- `--accordion-details-bg -              (default = #fff)
-- `--accordion-header-color -            (default = inherit)
-- `--accordion-header-open-color -       (default = inherit)
-- `--accordion-text-color -              (default = #999)
-- `--accordion-text-max-height -         (default = 100px)
-- `--accordion-img-size -                (default = 30px)
-- `--accordion-arrow-color -             (default = #ccc)
-- `--accordion-arrow-size -              (default = 10px)
-- `--accordion-border-color -            (default = #e5e5e5)
-- `--accordion-scrollbar-width -         (default = 10px)
-- `--accordion-scrollbar-thumb-color -   (default = #999)
-- `--accordion-scrollbar-track-color -   (default = #eee)
-- `--accordion-scrollbar-padding-right - (default = 8px)
-- `--accordion-header-margin-bottom -    (default = 10px)
+- `--accordion-header-bg` -               *(default = #fff)*
+- `--accordion-header-open-bg` -          *(default = #fff)*
+- `--accordion-details-bg` -              *(default = #fff)*
+- `--accordion-header-color` -            *(default = inherit)*
+- `--accordion-header-open-color` -       *(default = inherit)*
+- `--accordion-text-color` -              *(default = #999)*
+- `--accordion-text-max-height` -         *(default = 100px)*
+- `--accordion-img-size` -                *(default = 30px)*
+- `--accordion-arrow-color` -             *(default = #ccc)*
+- `--accordion-arrow-size` -              *(default = 10px)*
+- `--accordion-border-color` -            *(default = #e5e5e5)*
+- `--accordion-scrollbar-width` -         *(default = 10px)*
+- `--accordion-scrollbar-thumb-color` -   *(default = #999)*
+- `--accordion-scrollbar-track-color` -   *(default = #eee)*
+- `--accordion-scrollbar-padding-right` - *(default = 8px)*
+- `--accordion-header-margin-bottom` -    *(default = 10px)*
 
 ***Example usage:***
 ```
@@ -127,7 +119,6 @@ If you want customize this element, you can use CSS Custom Properties for `x-acc
 `<x-carousel>` is a custom element that contains list of accordion items - `<x-carousel-item>` (another custom elements).
 
 `<x-carousel-item>` 4 attributes:
-
 - `slot` - helper, that always must be equal `item` (required).
 - `author` - author of the text, that contains at carousels item (required).
 - `icon` - icon, that contains at carousels item (optional).
@@ -136,32 +127,27 @@ If you want customize this element, you can use CSS Custom Properties for `x-acc
 Text of carousels item you must enter as a value of tag <x-carousel-item> (between opening and closing tags).
 
 If you want customize this element, you can use CSS Custom Properties:
-1. `x-carousel`:
-
-- `--carousel-bg -                  (default = transparent)
-- `--carousel-arrow-size -          (default = 15px)
-- `--carousel-arrow-color -         (default = #ccc)
-- `--carousel-arrow-outline-color - (default = #95e1d3)
-
-2. `x-carousel-item`:
-
-- `--carousel-padding-vertical` -        (default = 0)
-- `--carousel-img-size -                 (default = 120px)
-- `--carousel-blockquote-color -         (default = inherit)
-- `--carousel-blockquote-style -         (default = italic)
-- `--carousel-blockquote-min-height -    (default = 60px)
-- `--carousel-blockquote-max-height -    (default = 100px)
-- `--carousel-blockquote-margin-bottom - (default = 20px)
-- `--carousel-cite-font-family -         (default = inherit)
-- `--carousel-cite-color -               (default = inherit)
-- `--carousel-cite-line-width -          (default = 3em)
-- `--carousel-cite-line-color -          (default = #95e1d3)
-- `--carousel-cite-text-align -          (default = left)
-- `--carousel-margin-horizontal -        (default = 75px)
-- `--carousel-scrollbar-width -          (default = 5px)
-- `--carousel-scrollbar-thumb-color -    (default = #999)
-- `--carousel-scrollbar-track-color -    (default = #eee)
-- `--carousel-scrollbar-padding-right -  (default = 8px)
+- `--carousel-bg` -                       *(default = transparent)*
+- `--carousel-arrow-size` -               *(default = 15px)*
+- `--carousel-arrow-color` -              *(default = #ccc)*
+- `--carousel-arrow-outline-color` -      *(default = #95e1d3)*
+- `--carousel-padding-vertical` -         *(default = 0)*
+- `--carousel-img-size` -                 *(default = 120px)*
+- `--carousel-blockquote-color` -         *(default = inherit)*
+- `--carousel-blockquote-style` -         *(default = italic)*
+- `--carousel-blockquote-min-height` -    *(default = 60px)*
+- `--carousel-blockquote-max-height` -    *(default = 100px)*
+- `--carousel-blockquote-margin-bottom` - *(default = 20px)*
+- `--carousel-cite-font-family` -         *(default = inherit)*
+- `--carousel-cite-color` -               *(default = inherit)*
+- `--carousel-cite-line-width` -          *(default = 3em)*
+- `--carousel-cite-line-color` -          *(default = #95e1d3)*
+- `--carousel-cite-text-align` -          *(default = left)*
+- `--carousel-margin-horizontal` -        *(default = 75px)*
+- `--carousel-scrollbar-width` -          *(default = 5px)*
+- `--carousel-scrollbar-thumb-color` -    *(default = #999)*
+- `--carousel-scrollbar-track-color` -    *(default = #eee)*
+- `--carousel-scrollbar-padding-right` -  *(default = 8px)*
 
 
 ***Example usage:***
@@ -189,14 +175,14 @@ x-carousel
 - `stroke-width` - thickness of the stroke. Optional, if this attribute is not specified, strokes width will be equal `10px`.
 
 If you want customize this element, you can use CSS Custom Properties:
-- `--chart-min-size`          - min charts width and height (default = 10em)
-- `--chart-max-size`          - max charts width and height (default = 20em)
-- `--chart-color-fill`        - color of area inside chart (default = transparent)
-- `--chart-full-color-stroke` - border color, that does not corresponds to the percentage (default = #eee)
-- `--chart-color-stroke`      - border color, that corresponds to the percentage (default = #95e1d3)
-- `--chart-percent-color`     - color of text inside circle (default = #666)
-- `--chart-title-color`       - color of text under circle (default = #95e1d3)
-- `--chart-title-margin-top`  - indentation between the text under the circle (default = 0)
+- `--chart-min-size`          - min charts width and height *(default = 10em)*
+- `--chart-max-size`          - max charts width and height *(default = 20em)*
+- `--chart-color-fill`        - color of area inside chart *(default = *transparent)
+- `--chart-full-color-stroke` - border color, that does not corresponds to the percentage *(default = #eee)*
+- `--chart-color-stroke`      - border color, that corresponds to the percentage *(default = #95e1d3)*
+- `--chart-percent-color`     - color of text inside circle *(default = #666)*
+- `--chart-title-color`       - color of text under circle *(default = #95e1d3)*
+- `--chart-title-margin-top`  - indentation between the text under the circle *(default = 0)*
 
 ***Example usage:***
 ```

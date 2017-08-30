@@ -11,6 +11,13 @@
   --nav-toggle-color: #95e1d3;
   --nav-toggle-focus-color: var(--nav-toggle-color);
   --nav-toggle-line-height: 3px;
+  --nav-font-color: #000;
+  --nav-current-color: #95e1d3;
+  --nav-current-border-width: 3px;
+  --nav-hover-color: var(--nav-current-color);
+  --nav-mobile-font-color: var(--nav-font-color);
+  --nav-mobile-hover-color: var(--nav-hover-color);
+  --nav-mobile-current-color: var(--nav-current-color);
 
   display: block;
   contain: content;

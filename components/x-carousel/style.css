@@ -3,6 +3,23 @@
   --carousel-arrow-size: 16px;
   --carousel-arrow-color: #ccc;
   --carousel-arrow-outline-color: #95e1d3;
+  --carousel-padding-vertical: 0;
+  --carousel-img-size: 120px;
+  --carousel-blockquote-color: inherit;
+  --carousel-blockquote-style: italic;
+  --carousel-blockquote-min-height: 60px;
+  --carousel-blockquote-max-height: 100px;
+  --carousel-blockquote-margin-bottom: 20px;
+  --carousel-cite-font-family: inherit;
+  --carousel-cite-color: var(--carousel-blockquote-color);
+  --carousel-cite-line-width: 3em;
+  --carousel-cite-line-color: #95e1d3;
+  --carousel-cite-text-align: left;
+  --carousel-margin-horizontal: 75px;
+  --carousel-scrollbar-width: 5px;
+  --carousel-scrollbar-thumb-color: #999;
+  --carousel-scrollbar-track-color: #eee;
+  --carousel-scrollbar-padding-right: 8px;
 
   display: flex;
   contain: content;

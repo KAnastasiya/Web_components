@@ -8,18 +8,15 @@ x-navigation:last-of-type {
   --nav-toggle-color: $color-main;
   --nav-toggle-focus-color: $color-add-1--light;
   --nav-toggle-line-height: 4px;
+  --nav-font-color: #666;
+  --nav-current-color: $color-main;
+  --nav-current-border-width: 2px;
+  --nav-hover-color: $color-add-1;
 
-  x-navigation-item {
-    --nav-font-color: #666;
-    --nav-current-color: $color-main;
-    --nav-current-border-width: 2px;
-    --nav-hover-color: $color-add-1;
-
-    font-family: $font-family--add;
-  }
+  font-family: $font-family--add;
 }
 
-x-accordion:last-of-type x-accordion-item {
+x-accordion:last-of-type {
   --accordion-header-bg: $color-add-2;
   --accordion-details-bg: $color-add-2--light;
   --accordion-header-color: $color-main;
@@ -43,22 +40,19 @@ x-carousel {
     --carousel-arrow-size: 10px;
     --carousel-arrow-color: $color-add-1;
     --carousel-arrow-outline-color: $color-add-1--light;
+    --carousel-padding-vertical: 30px;
+    --carousel-img-size: 200px;
+    --carousel-blockquote-color: $color-add-1;
+    --carousel-blockquote-style: normal;
+    --carousel-blockquote-max-height: 200px;
+    --carousel-cite-line-color: $color-main;
+    --carousel-margin-horizontal: 40px;
+    --carousel-scrollbar-width: 5px;
+    --carousel-scrollbar-thumb-color: $color-add-1;
+    --carousel-scrollbar-track-color: $color-add-1--light;
+    --carousel-scrollbar-padding-right: 5px;
 
-    x-carousel-item {
-      --carousel-padding-vertical: 30px;
-      --carousel-img-size: 200px;
-      --carousel-blockquote-color: $color-add-1;
-      --carousel-blockquote-style: normal;
-      --carousel-blockquote-max-height: 200px;
-      --carousel-cite-line-color: $color-main;
-      --carousel-margin-horizontal: 40px;
-      --carousel-scrollbar-width: 5px;
-      --carousel-scrollbar-thumb-color: $color-add-1;
-      --carousel-scrollbar-track-color: $color-add-1--light;
-      --carousel-scrollbar-padding-right: 5px;
-
-      font-family: $font-family--add;
-    }
+    font-family: $font-family--add;
   }
 
   &:last-of-type {
@@ -66,19 +60,16 @@ x-carousel {
     --carousel-arrow-size: 20px;
     --carousel-arrow-color: $color-main--light;
     --carousel-arrow-outline-color: $color-add-2;
-
-    x-carousel-item {
-      --carousel-margin-horizontal: 30px;
-      --carousel-blockquote-max-height: 100%;
-      --carousel-padding-vertical: 35px;
-      --carousel-blockquote-margin-bottom: 25px;
-      --carousel-blockquote-min-height: 70px;
-      --carousel-cite-font-family: 'Kaushan Script', cursive;
-      --carousel-cite-line-width: 0;
-      --carousel-cite-color: $color-main;
-      --carousel-cite-text-align: right;
-      --carousel-scrollbar-thumb-color: $color-add-2;
-    }
+    --carousel-margin-horizontal: 30px;
+    --carousel-blockquote-max-height: 100%;
+    --carousel-padding-vertical: 35px;
+    --carousel-blockquote-margin-bottom: 25px;
+    --carousel-blockquote-min-height: 70px;
+    --carousel-cite-font-family: 'Kaushan Script', cursive;
+    --carousel-cite-line-width: 0;
+    --carousel-cite-color: $color-main;
+    --carousel-cite-text-align: right;
+    --carousel-scrollbar-thumb-color: $color-add-2;
   }
 }
 

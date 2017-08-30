@@ -1,4 +1,21 @@
 :host {
+  --accordion-header-bg: #fff;
+  --accordion-header-open-bg: var(--accordion-header-bg);
+  --accordion-details-bg: var(--accordion-header-bg);
+  --accordion-header-color: inherit;
+  --accordion-header-open-color: var(--accordion-header-color);
+  --accordion-text-color: #999;
+  --accordion-text-max-height: 100px;
+  --accordion-img-size: 30px;
+  --accordion-arrow-color: #ccc;
+  --accordion-arrow-size: 10px;
+  --accordion-border-color: #e5e5e5;
+  --accordion-scrollbar-width: 10px;
+  --accordion-scrollbar-thumb-color: #999;
+  --accordion-scrollbar-track-color: #eee;
+  --accordion-scrollbar-padding-right: 8px;
+  --accordion-header-margin-bottom: 10px;
+
   display: block;
   contain: content;
 }
