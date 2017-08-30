@@ -1,4 +1,4 @@
-(function () {
+(function() {
   class XAccordion extends HTMLElement {
     constructor() {
       super();
@@ -13,20 +13,19 @@
       this.childTagName = 'x-accordion-item';
       this.addEventListener('change', this.onChange);
 
-      Promise.all([customElements.whenDefined(this.childTagName)])
-        .then(() => {
-          const selectedItem = this.items.find(item => item.hasAttribute('selected'));
-          if (!selectedItem) {
-            this.items[0].selected = true;
-          }
+      Promise.all([customElements.whenDefined(this.childTagName)]).then(() => {
+        const selectedItem = this.items.find(item => item.hasAttribute('selected'));
+        if (!selectedItem) {
+          this.items[0].selected = true;
+        }
 
-          const styles = getComputedStyle(this.items[0]);
-          const headerMarginBottom = styles.getPropertyValue('--accordion-header-margin-bottom');
-          if (parseInt(headerMarginBottom, 10) < 0) {
-            const borderColor = styles.getPropertyValue('--accordion-border-color');
-            this.style.borderBottom = `1px solid ${borderColor}`;
-          }
-        });
+        const styles = getComputedStyle(this.items[0]);
+        const headerMarginBottom = styles.getPropertyValue('--accordion-header-margin-bottom');
+        if (parseInt(headerMarginBottom, 10) < 0) {
+          const borderColor = styles.getPropertyValue('--accordion-border-color');
+          this.style.borderBottom = `1px solid ${borderColor}`;
+        }
+      });
     }
 
     disconnectedCallback() {
@@ -34,7 +33,7 @@
     }
 
     closeAll() {
-      this.items.forEach((elem) => {
+      this.items.forEach(elem => {
         const item = elem;
         item.selected = false;
       });
@@ -60,4 +59,4 @@
   }
 
   window.customElements.define('x-accordion', XAccordion);
-}());
+})();

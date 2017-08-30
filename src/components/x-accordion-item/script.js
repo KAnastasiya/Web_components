@@ -1,4 +1,4 @@
-(function () {
+(function() {
   class XAccordionItem extends HTMLElement {
     static get observedAttributes() {
       return ['selected'];
@@ -68,4 +68,4 @@
   }
 
   window.customElements.define('x-accordion-item', XAccordionItem);
-}());
+})();

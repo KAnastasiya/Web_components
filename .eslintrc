@@ -1,19 +1,35 @@
 {
-  "extends": "airbnb-base",
+  "extends": [
+    "airbnb-base",
+    "prettier"
+  ],
+
   "parser": "babel-eslint",
 
   "globals": {
     "NODE_ENV": true
   },
 
+  "plugins": [
+    "prettier"
+  ],
+
   "env": {
     "browser": true,
     "node": true,
-    "jquery": true,
     "es6": true
   },
 
   "rules": {
+    "prettier/prettier": ["error", {
+      "printWidth": 120,
+      "singleQuote": true,
+      "trailingComma": "all",
+      "bracketSpacing": true,
+      "jsxBracketSameLine": true,
+      "parser": "babylon",
+      "semi": true
+    }],
     "import/prefer-default-export": 0,
     "no-nested-ternary": 0,
     "one-var-declaration-per-line": [2, "initializations"],
@@ -24,6 +40,7 @@
     "consistent-return": 0,
     "func-names": [0, "as-needed"],
     "global-require": 0,
-    "no-return-assign": 0
+    "no-return-assign": 0,
+    "curly": ["error", "all"]
   }
 }

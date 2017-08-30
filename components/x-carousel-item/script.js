@@ -1,4 +1,4 @@
-(function () {
+(function() {
   class XCarouselItem extends HTMLElement {
     static get observedAttributes() {
       return ['selected'];
@@ -63,4 +63,4 @@
   }
 
   window.customElements.define('x-carousel-item', XCarouselItem);
-}());
+})();

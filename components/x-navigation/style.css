@@ -121,7 +121,8 @@ ul {
 }
 
 :host([mobile][opened]) .toggle .line-3 {
-  transform: translateY(calc(-1 * ( var(--nav-toggle-height) / 2 - var(--nav-toggle-line-height)))) translateX(0) rotate(-45deg);
+  transform: translateY(calc(-1 * (var(--nav-toggle-height) / 2 - var(--nav-toggle-line-height)))) translateX(0)
+    rotate(-45deg);
 }
 
 @keyframes fadeIn {

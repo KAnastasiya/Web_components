@@ -1,4 +1,4 @@
-(function () {
+(function() {
   class XChart extends HTMLElement {
     constructor() {
       super();
@@ -26,7 +26,7 @@
       const circleList = this.svg.querySelectorAll('circle');
       const strokeWidth = this.getAttribute('stroke-width');
       const circumference = 439.6; // PI * 2R
-      const circleStrokeDasharray = (parseFloat(percent) * circumference) / 100; // (X% * circumference) / 100%
+      const circleStrokeDasharray = parseFloat(percent) * circumference / 100; // (X% * circumference) / 100%
 
       if (strokeWidth) {
         Array.from(circleList).forEach(circle => circle.setAttribute('stroke-width', strokeWidth));
@@ -40,7 +40,7 @@
 
     drawPercent(percent) {
       const text = this.svg.querySelector('text');
-      const textX = (percent.length === 4) ? '25' : (percent.length === 3) ? '40' : '55';
+      const textX = percent.length === 4 ? '25' : percent.length === 3 ? '40' : '55';
       text.innerHTML = percent;
       text.setAttribute('x', textX);
     }
@@ -51,4 +51,4 @@
   }
 
   window.customElements.define('x-chart', XChart);
-}());
+})();

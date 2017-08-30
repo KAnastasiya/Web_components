@@ -1,4 +1,4 @@
-(function () {
+(function() {
   class XNavigation extends HTMLElement {
     static get observedAttributes() {
       return ['mobile'];
@@ -18,13 +18,12 @@
       this.maxMobileWidth = 1210; // px
       this.addEventListener('change', this.onChange);
 
-      Promise.all([customElements.whenDefined(this.childTagName)])
-        .then(() => {
-          if (!this.selectedItem) {
-            this.items[0].selected = true;
-          }
-          this.onResize();
-        });
+      Promise.all([customElements.whenDefined(this.childTagName)]).then(() => {
+        if (!this.selectedItem) {
+          this.items[0].selected = true;
+        }
+        this.onResize();
+      });
 
       this.shadowRoot.querySelector('.toggle').addEventListener('click', this.onToggleClick.bind(this));
       window.addEventListener('scroll', this.constructor.debounce(this.onScroll.bind(this), 300));
@@ -37,7 +36,7 @@
     }
 
     attributeChangedCallback(name, oldVal, newVal) {
-      this.items.map((elem) => {
+      this.items.map(elem => {
         const item = elem;
         return (item.mobile = !!newVal);
       });
@@ -48,7 +47,7 @@
     }
 
     unselectAll() {
-      this.items.forEach((elem) => {
+      this.items.forEach(elem => {
         const item = elem;
         item.selected = false;
       });
@@ -63,7 +62,7 @@
       const body = document.body;
       const position = this.constructor.getScrollPosition();
       const targetOffset = document.querySelector(`#${event.target.getAttribute('value')}`).offsetTop;
-      const scrollTranslate = (targetOffset > position) ? `-${targetOffset - position}` : (position - targetOffset);
+      const scrollTranslate = targetOffset > position ? `-${targetOffset - position}` : position - targetOffset;
 
       body.style.transition = 'transform 1000ms ease';
       body.style.transform = `translate(0, ${scrollTranslate}px)`;
@@ -92,7 +91,7 @@
 
       const current = scrolled[scrolled.length - 1] || this.items[0].getAttribute('value');
 
-      this.items.forEach((item) => {
+      this.items.forEach(item => {
         if (item.getAttribute('value') === current) {
           this.select(item);
         }
@@ -162,7 +161,7 @@
 
     static debounce(func, wait, immediate) {
       let timeout;
-      return function (...args) {
+      return function(...args) {
         const callNow = immediate && !timeout;
 
         const later = () => {
@@ -182,4 +181,4 @@
   }
 
   window.customElements.define('x-navigation', XNavigation);
-}());
+})();
