@@ -1,10 +1,8 @@
 {
   "name": "Web-components",
-  "author": "Anastasiia Kozenko",
   "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
-  "license": "UNLICENSED",
+  "author": "Anastasiia Kozenko",
+  "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "cross-env NODE_ENV=prod webpack",
