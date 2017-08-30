@@ -22,7 +22,7 @@
 
           const styles = getComputedStyle(this.items[0]);
           const headerMarginBottom = styles.getPropertyValue('--accordion-header-margin-bottom');
-          if (parseInt(headerMarginBottom) < 0) {
+          if (parseInt(headerMarginBottom, 10) < 0) {
             const borderColor = styles.getPropertyValue('--accordion-border-color');
             this.style.borderBottom = `1px solid ${borderColor}`;
           }
